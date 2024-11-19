@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TasksApp | One Place All Tasks </title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1 class="header-logo">TasksApp</h1>
+        <div class="header-task-counter">
+            <img class="task-active" src="assets/icons/circle.svg" alt="circle-icon">
+            <p class="task-counter"></p>
+        </div>
+    </header>
+    <nav class="sidebar-nav">
+        <ul class="nav-default">
+            <li><button><img src="assets/icons/inbox.svg" alt="Inbox Icon">Inbox</button></li>
+            <li><button><img src="assets/icons/calendar-regular.svg" alt="Calendar Icon">Today</button></li>
+            <li><button><img src="assets/icons/clipboard-text-clock.svg" alt="Calendar Date Icon">Upcoming</button></li>
+            <li><button><img src="assets/icons/clipboard-check-solid.svg" alt="Completed Icon">Completed</button></li>
+        </ul>
+        <h3>Projects</h3>
+        <ul class="nav-added-projects"></ul>
+        <button class="add-project"><img src="assets/icons/plus-solid.svg" alt="Plus Icon">Add Project</button>
+        <dialog class="project-dialog">
+            <form action="/" method="get">
+                <h3>Project Name</h3>
+                <p>Enter your project name</p>
+                <input type="text" class="project-name-input" required>
+                <div class="form-buttons">
+                    <button id="cancel-button">Cancel</button>
+                    <button id="confirm-button">Confirm</button>
+                </div>
+            </form>
+        </dialog>
+    </nav>
+    <main class="main-content">
+        
+    </main>
+    <footer>
+        <p>Made by <a href="https://github.com/FranVlahovic">FranVlahovic <img src="assets/icons/github.svg" alt="GitHub Icon"></a></p>
+    </footer>
+</body>
+</html>
