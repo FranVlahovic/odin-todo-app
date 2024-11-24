@@ -7,39 +7,65 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
+    <header id="header">
         <h1 class="header-logo">TasksApp</h1>
         <div class="header-task-counter">
             <img class="task-active" src="assets/icons/circle.svg" alt="circle-icon">
-            <p class="task-counter"></p>
+            <div class="task-counter">
+                <h3 class="completed-counter"></h3>
+                <h3 class="total-counter"></h3>
+            </div>
         </div>
+        <button class="dark-mode-toggle"><img src="assets/icons/white-balance-sunny.svg" alt="Day Icon" class="day-icon"><img src="assets/icons/weather-night.svg" alt="Night Icon" class="night-icon"></button>
+        <button class="header-login-btn">Login</button>
     </header>
-    <nav class="sidebar-nav">
+    <nav id="sidebar-nav">
         <ul class="nav-default">
-            <li><button><img src="assets/icons/inbox.svg" alt="Inbox Icon">Inbox</button></li>
-            <li><button><img src="assets/icons/calendar-regular.svg" alt="Calendar Icon">Today</button></li>
-            <li><button><img src="assets/icons/clipboard-text-clock.svg" alt="Calendar Date Icon">Upcoming</button></li>
-            <li><button><img src="assets/icons/clipboard-check-solid.svg" alt="Completed Icon">Completed</button></li>
+            <li class="nav-all-projects"><img class="sidebar-item-img" src="assets/icons/inbox.svg" alt="Inbox Icon"><h4>All Projects</h4></li>
+            <li class="nav-today-projects"><img class="sidebar-item-img" src="assets/icons/calendar-regular.svg" alt="Calendar Icon"><h4>Today</h4></li>
+            <li class="nav-upcoming-projects"><img class="sidebar-item-img" src="assets/icons/clipboard-text-clock.svg" alt="Calendar Date Icon"><h4>Upcoming</h4></li>
+            <li class="nav-completed-projects"><img class="sidebar-item-img" src="assets/icons/clipboard-check-solid.svg" alt="Completed Icon"><h4>Completed</h4></li>
         </ul>
-        <h3>Projects</h3>
-        <ul class="nav-added-projects"></ul>
-        <button class="add-project"><img src="assets/icons/plus-solid.svg" alt="Plus Icon">Add Project</button>
+
+        <div class="sidebar-projects">
+            <h3>Projects</h3>
+            <ul class="projects-container">
+                <li class="project-item">
+                    <h4>Work</h4>
+                    <button class="project-edit-btn"><img src="assets/icons/square-edit-outline.svg" alt="Project Edit Button"></button>
+                    <button class="project-delete-btn"><img src="assets/icons/delete.svg" alt="Project Delete Button"></button>
+                </li>
+            </ul>
+            <button class="add-project"><img src="assets/icons/plus-solid.svg" alt="Plus Icon">Add Project</button>
+        </div>
+        
         <dialog class="project-dialog">
             <form action="/" method="get">
                 <h3>Project Name</h3>
                 <p>Enter your project name</p>
                 <input type="text" class="project-name-input" required>
                 <div class="form-buttons">
-                    <button id="cancel-button">Cancel</button>
-                    <button id="confirm-button">Confirm</button>
+                    <button class="cancel-btn">Cancel</button>
+                    <button class="confirm-btn">Confirm</button>
                 </div>
             </form>
         </dialog>
     </nav>
-    <main class="main-content">
-        
+    <main id="main-content">
+        <h2 class="main-content-heading">Project Name</h2>
+        <div class="task-container">
+            <div class="task-item">
+                <div class="task-name">Name</div>
+                <div class="task-date">Today</div>
+                <div class="task-priority">High</div>
+                <button class="task-complete-btn">Mark Complete</button>
+                <button class="task-edit-btn">Edit</button>
+                <button class="task-delete-btn">Delete</button>
+            </div>
+            <button class="add-task"><img src="assets/icons/plus-solid.svg" alt="Plus Icon">Add Task</button>
+        </div>
     </main>
-    <footer>
+    <footer id="footer">
         <p>Made by <a href="https://github.com/FranVlahovic">FranVlahovic <img src="assets/icons/github.svg" alt="GitHub Icon"></a></p>
     </footer>
 </body>
