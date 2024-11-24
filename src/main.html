@@ -29,24 +29,18 @@
 
         <div class="sidebar-projects">
             <h3>Projects</h3>
-            <ul class="projects-container">
-                <li class="project-item">
-                    <h4>Work</h4>
-                    <button class="project-edit-btn"><img src="assets/icons/square-edit-outline.svg" alt="Project Edit Button"></button>
-                    <button class="project-delete-btn"><img src="assets/icons/delete.svg" alt="Project Delete Button"></button>
-                </li>
-            </ul>
+            <ul class="projects-container"></ul>
             <button class="add-project"><img src="assets/icons/plus-solid.svg" alt="Plus Icon">Add Project</button>
         </div>
         
         <dialog class="project-dialog">
-            <form action="/" method="get">
+            <form class="project-form" action="/" method="get">
                 <h3>Project Name</h3>
                 <p>Enter your project name</p>
                 <input type="text" class="project-name-input" required>
                 <div class="form-buttons">
-                    <button class="cancel-btn">Cancel</button>
-                    <button class="confirm-btn">Confirm</button>
+                    <button type="button" class="cancel-btn">Cancel</button>
+                    <button type="submit" class="confirm-btn">Confirm</button>
                 </div>
             </form>
         </dialog>
