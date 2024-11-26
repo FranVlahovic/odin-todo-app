@@ -1,34 +1,56 @@
-// Create Project
+// Project Template
 const createProject = (name) => {
-    const id = Date.now().valueOf();
+    const id = Date.now();
 
     return {
         projectId: id,
         projectName: name,
     };
 };
+// const addTaskDialog = document.querySelector('.task-dialog');
 
-// Dialogs
+// const openTaskDialogBtn = () => {
+//     const addTaskBtn = document.querySelector('.add-task');
+
+//     addTaskBtn.addEventListener("click", () => {
+//         openTaskDialog();
+//     });
+// };
+
+// const openTaskDialog = () => {
+//     addTaskDialog.showModal();
+// };
+
+
 const addProjectDialog = document.querySelector('.project-dialog');
 
-const openAddProjectDialog = () => {
+// Open Project Dialog Button
+const openProjectDialogBtn = () => {
     const addProjectBtn = document.querySelector('.add-project');
 
     addProjectBtn.addEventListener("click", () => {
-        addProjectDialog.showModal();
+        openProjectDialog();
     });
 };
 
+// Opens Project Dialog
+const openProjectDialog = () => {
+    addProjectDialog.showModal();
+};
+
+// Closes Project Dialog
 const closeAddProjectDialog = () => {
     addProjectDialog.close();
 };
 
-// Project Form
+// Dialog Form Cancel
 const cancelAddProject = () => {
     const cancelBtn = document.querySelector('.cancel-btn');
+    const projectInput = document.querySelector('.project-name-input');
 
     cancelBtn.addEventListener("click", (e) => {
         e.preventDefault();
+        projectInput.value = '';
         closeAddProjectDialog();
     });
 }
@@ -60,16 +82,52 @@ const renderProjectToNav = () => {
     const projectsContainer = document.querySelector('.projects-container');
     projectsContainer.innerHTML = '';
 
-    projectArray.forEach(({projectName, projectId}) => {
+    projectArray.forEach(({ projectName, projectId }) => {
         projectsContainer.innerHTML += `
-        <li class="project-item">        
-            <h4>${projectName}</h4>
-            <button class="project-edit-btn"><img src="assets/icons/square-edit-outline.svg" alt="Project Edit Button"></button>
-            <button class="project-delete-btn"><img src="assets/icons/delete.svg" alt="Project Delete Button"></button>
-        </li>`;
+            <li class="project-item" data-id="${projectId}">        
+                <h4>${projectName}</h4>
+                <button class="project-edit-btn" data-id="${projectId}">
+                    <img src="assets/icons/square-edit-outline.svg" alt="Project Edit Button">
+                </button>
+                <button class="project-delete-btn" data-id="${projectId}">
+                    <img src="assets/icons/delete.svg" alt="Project Delete Button">
+                </button>
+            </li>`;
     });
+    projectEventListeners();
 };
 
-openAddProjectDialog();
+const projectEventListeners = () => {
+    document.querySelectorAll('.project-edit-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const projectId = e.target.closest('button').dataset.id;
+            handleEditProject(projectId);
+        });
+    });
+
+    document.querySelectorAll('.project-delete-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const projectId = e.target.closest('button').dataset.id;
+            handleDeleteProject(projectId);
+        });
+    });
+};
+const handleEditProject = (projectId) => {
+    projectId = Number(projectId);
+    const project = projectArray.find(p => p.projectId === projectId);
+    if (project){
+        openProjectDialog();
+    }
+};
+
+const handleDeleteProject = (projectId) => {
+    projectId = Number(projectId);
+    const projectIndex = projectArray.findIndex(p => p.projectId === projectId);
+    if (projectIndex !== -1){
+        projectArray.splice(projectIndex, 1);
+        renderProjectToNav();
+    }
+};
+openProjectDialogBtn();
 cancelAddProject();
 addProject();

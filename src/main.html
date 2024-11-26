@@ -49,15 +49,32 @@
         <h2 class="main-content-heading">Project Name</h2>
         <div class="task-container">
             <div class="task-item">
-                <div class="task-name">Name</div>
-                <div class="task-date">Today</div>
-                <div class="task-priority">High</div>
+                <div class="task-name"></div>
+                <div class="task-date"></div>
+                <div class="task-priority"></div>
                 <button class="task-complete-btn">Mark Complete</button>
                 <button class="task-edit-btn">Edit</button>
                 <button class="task-delete-btn">Delete</button>
             </div>
             <button class="add-task"><img src="assets/icons/plus-solid.svg" alt="Plus Icon">Add Task</button>
         </div>
+        
+        <dialog class="task-dialog">
+            <form class="task-form" action="/" method="get">
+                <button type="button" class="cancel-btn">X</button>
+                <h3>New Task</h3>
+                <label for="title">Title</label>
+                <input type="text" class="task-title-input" id="title" required>
+                <label for="date">Due Date</label>
+                <input type="datetime" id="date" class="task-date-input" required>
+                <label for="priority">Priority</label>
+                <div class="task-priority-container">
+                    <button type="button" id="priority" class="low-priority-btn">Low</button>
+                    <button type="button" id="priority" class="high-priority-btn">High</button>
+                </div>
+                <button type="submit" class="confirm-btn">Confirm</button>
+            </form>
+        </dialog>
     </main>
     <footer id="footer">
         <p>Made by <a href="https://github.com/FranVlahovic">FranVlahovic <img src="assets/icons/github.svg" alt="GitHub Icon"></a></p>
